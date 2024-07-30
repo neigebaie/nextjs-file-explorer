@@ -73,6 +73,11 @@ Briefly describe the structure of your project.
 ...
 ```
 
+## Roadmap
+
+- Add file icons depending on file type
+- Different color for already downloaded files
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
