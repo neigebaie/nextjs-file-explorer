@@ -20,7 +20,7 @@ export default function Nav() {
       <nav className="h-14 flex items-center px-8">
         <Link href={"/"}>
           <div className="flex flex-row items-center gap-2 justify-center">
-            <p className="text-xl">☁️</p>
+            <p className="text-xl animate-tilt">☁️</p>
             <h1 className="font-bold">Tidning</h1>
           </div>
         </Link>

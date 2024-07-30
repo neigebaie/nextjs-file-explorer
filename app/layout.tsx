@@ -4,6 +4,7 @@ import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { cn } from "@/lib/utils";
 import Nav from "@/components/Nav";
+import Copyright from "@/components/Copyright";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
           <Nav />
           <main className="flex flex-col w-full py-20 px-2 xl:px-8 m-auto min-h-screen">
             {children}
+            <Copyright />
           </main>
         </ThemeProvider>
       </body>
