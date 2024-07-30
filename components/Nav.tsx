@@ -3,17 +3,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { usePathname } from "next/navigation";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { ModeToggle } from "./ui/toggle-mode";
 import BreadcrumbsPath from "./BreadcrumbsPath";
+import GithubIcon from "./GithubIcon";
+import { Button } from "./ui/button";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -62,25 +58,16 @@ export default function Nav() {
                 Tidning
               </p>
             </Link>
-            <p className="text-muted-foreground">
-              {process.env.NEXT_PUBLIC_VERSION} -{" "}
-              {process.env.NEXT_PUBLIC_BUILD_DATE}
-            </p>
             <div className="my-4" />
           </SheetContent>
         </Sheet>
 
         <div className="hidden md:flex flex-row items-center gap-4">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger className="text-xs text-muted-foreground">
-                {process.env.NEXT_PUBLIC_VERSION}
-              </TooltipTrigger>
-              <TooltipContent>
-                {process.env.NEXT_PUBLIC_BUILD_DATE}
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <Link href="https://github.com/neigebaie/nextjs-file-explorer">
+            <Button variant="outline" size="icon">
+              <GithubIcon className="h-5 w-5 fill-foreground" />
+            </Button>
+          </Link>
           <ModeToggle />
         </div>
       </nav>
