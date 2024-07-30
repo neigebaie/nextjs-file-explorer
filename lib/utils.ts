@@ -1,8 +1,8 @@
-import { type ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 export function formatAgo(date: Date, lang = "en") {
@@ -45,10 +45,25 @@ export function formatAgo(date: Date, lang = "en") {
 }
 
 export function formatSize(size: number): string {
-  if (size === 0) return '0 Bytes';
+  if (size === 0) return "0 Bytes";
   const k = 1024;
-  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+  const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
   const i = Math.floor(Math.log(size) / Math.log(k));
   const formattedSize = parseFloat((size / Math.pow(k, i)).toFixed(2));
   return `${formattedSize} ${sizes[i]}`;
+}
+
+export function joinHttpPaths(base: string, path: string) {
+  // Remove trailing slash from base if present
+  if (base.endsWith("/")) {
+    base = base.slice(0, -1);
+  }
+
+  // Remove leading slash from path if present
+  if (path.startsWith("/")) {
+    path = path.slice(1);
+  }
+
+  // Return the joined path
+  return `${base}/${path}`;
 }

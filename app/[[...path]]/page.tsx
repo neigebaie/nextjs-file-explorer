@@ -1,7 +1,7 @@
 "use client";
 
 import { SortProps, TableCard } from "@/components/TableCard";
-import { formatAgo, formatSize } from "@/lib/utils";
+import { formatAgo, formatSize, joinHttpPaths } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import path from "path";
@@ -46,7 +46,7 @@ export default function FilePage({}: Props) {
           href={
             file.type === "directory"
               ? file.path
-              : path.join(
+              : joinHttpPaths(
                   `${process.env.NEXT_PUBLIC_API_URL}/files/download/`,
                   file.path
                 )
