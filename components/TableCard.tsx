@@ -182,11 +182,11 @@ export function TableCard({
             <TableCell className="relative truncate overflow-hidden px-0.5 md:px-2 max-w-[600px]">
               <Link href={parentPath}>
                 <div className="flex flex-row gap-2 items-center">
-                  <p className="hidden md:block">
+                  <p>
                     ☝️
                   </p>
                   <div className="truncate">
-                    <p className="text-xs md:text-base">
+                    <p className="text-xs md:text-base text-primary">
                       Dossier Parent
                     </p>
                   </div>
@@ -213,7 +213,7 @@ export function TableCard({
               <TableRow key={rowId} className="group">
                 {headers.map((_: any, cellId: number) => (
                   <TableCell
-                    className="relative truncate overflow-hidden px-1 md:px-2 max-w-[200px] lg:max-w-[600px]"
+                    className="relative truncate overflow-hidden px-1 md:px-2 lg:max-w-[600px]"
                     key={cellId}
                   >
                     {headers[cellId].display && headers[cellId].display(row)}

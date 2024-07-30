@@ -53,7 +53,7 @@ export default function FilePage({}: Props) {
           }
         >
           <div className="flex flex-row gap-2 items-center group">
-            <p className="hidden md:block">
+            <p>
               {file.type === "directory" ? "📁" : "📄"}
             </p>
             <div className="truncate">
