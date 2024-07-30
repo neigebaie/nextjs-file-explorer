@@ -34,7 +34,7 @@ if [ $? -eq 0 ]; then
     echo -e "${GREEN}Successfully stopped and removed the Docker container.${NC}"
 else
     echo -e "${RED}Failed to stop or remove the Docker container. Check the log above for errors.${NC}"
-    exit 1
+    # exit 1
 fi
 
 echo -e "${GREEN}Building and starting the Docker container...${NC}"

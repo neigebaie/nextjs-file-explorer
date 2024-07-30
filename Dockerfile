@@ -24,6 +24,7 @@ ENV NODE_ENV=production
 
 # Expose the port on which your app runs.
 EXPOSE 3010
+ENV PORT 3010
 
 # Start the Next.js app.
-CMD ["pnpm", "start", "--", "-p", "3010"]
+CMD ["pnpm", "start"]
