@@ -43,10 +43,14 @@ export default function FilePage({}: Props) {
       label: "Nom",
       display: (file: File) => (
         <Link
-          href={path.join(
-            `${process.env.NEXT_PUBLIC_API_URL}/files/download/`,
-            file.path
-          )}
+          href={
+            file.type === "directory"
+              ? file.path
+              : path.join(
+                  `${process.env.NEXT_PUBLIC_API_URL}/files/download/`,
+                  file.path
+                )
+          }
         >
           <div className="flex flex-row gap-2 items-center group">
             <p className="h-8 w-8 p-2 rounded-full transition-colors flex-shrink-0 hidden md:block">
@@ -122,7 +126,7 @@ export default function FilePage({}: Props) {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/files?page=${page}&path=${pathname}${searchString}${sortString}${filterString}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/files?page=${page}&path=${pathname}${searchString}${sortString}${filterString}`
         // {
         //   credentials: "include",
         // }
