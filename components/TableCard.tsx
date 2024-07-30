@@ -193,11 +193,8 @@ export function TableCard({
                   <TableCell
                     className="relative truncate overflow-hidden px-0.5 md:px-2 max-w-[600px]"
                     key={cellId}
-                    // onClick={() => {
-                    //   handleUpdate(row)
-                    // }}
                   >
-                      {headers[cellId].display && headers[cellId].display(row)}
+                    {headers[cellId].display && headers[cellId].display(row)}
                   </TableCell>
                 ))}
               </TableRow>

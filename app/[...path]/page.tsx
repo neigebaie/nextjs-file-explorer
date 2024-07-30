@@ -26,7 +26,7 @@ type Data = {
 };
 
 export default function FilePage({}: Props) {
-  const [filter, setFilter] = useState<string[]>([]);
+  const [filter, setFilter] = useState<string[]>([]); // unused for now
   const [search, setSearch] = useState<string>("");
   const [sort, setSort] = useState<SortProps | undefined>();
   const [page, setPage] = useState<number>(1);
@@ -142,10 +142,6 @@ export default function FilePage({}: Props) {
     } finally {
       setFilesLoading(false);
     }
-  };
-
-  const refresh = () => {
-    fetchFiles();
   };
 
   useEffect(() => {

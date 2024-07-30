@@ -67,7 +67,8 @@ Briefly describe the structure of your project.
 
 ```
 /components  # React components
-/pages       # Next.js pages
+/app         # Next.js app
+/lib         # Libraries
 /public      # Public assets
 ...
 ```
