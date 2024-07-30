@@ -26,4 +26,4 @@ ENV NODE_ENV=production
 EXPOSE 3010
 
 # Start the Next.js app.
-CMD ["pnpm", "start"]
+CMD ["pnpm", "start", "--", "-p", "3010"]
