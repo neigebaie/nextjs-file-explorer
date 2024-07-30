@@ -53,7 +53,7 @@ export default function FilePage({}: Props) {
           }
         >
           <div className="flex flex-row gap-2 items-center group">
-            <p className="h-8 w-8 p-2 rounded-full transition-colors flex-shrink-0 hidden md:block">
+            <p className="hidden md:block">
               {file.type === "directory" ? "📁" : "📄"}
             </p>
             <div className="truncate">
@@ -94,7 +94,9 @@ export default function FilePage({}: Props) {
     {
       label: "Téléchargements",
       display: (file: File) => (
-        <p className="text-xs md:text-base">{file.dlCount}</p>
+        <p className="text-xs md:text-base">
+          {file.type === "directory" ? "-" : file.dlCount}
+        </p>
       ),
       sortKey: "dlCount",
     },
@@ -174,6 +176,7 @@ export default function FilePage({}: Props) {
         search={search}
         setSearch={setSearch}
         noData={noData}
+        parentPath={path.join(pathname, "..")}
       />
     </div>
   );

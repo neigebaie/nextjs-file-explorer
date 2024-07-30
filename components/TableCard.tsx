@@ -19,6 +19,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Search, ArrowUp, ArrowDown } from "lucide-react";
+import Link from "next/link";
 
 type Props = {
   data: Data | undefined | null;
@@ -32,6 +33,7 @@ type Props = {
   sort: SortProps | undefined;
   setSort: Function;
   noData: ReactNode;
+  parentPath: string;
 };
 
 type Data = {
@@ -63,6 +65,7 @@ export function TableCard({
   inputPlaceholder,
   headers,
   noData,
+  parentPath,
 }: Props) {
   function PaginationItems({
     totalPages,
@@ -175,6 +178,25 @@ export function TableCard({
           </TableRow>
         </TableHeader>
         <TableBody>
+          <TableRow className="h-[50px]">
+            <TableCell className="relative truncate overflow-hidden px-0.5 md:px-2 max-w-[600px]">
+              <Link href={parentPath}>
+                <div className="flex flex-row gap-2 items-center">
+                  <p className="hidden md:block">
+                    ☝️
+                  </p>
+                  <div className="truncate">
+                    <p className="text-xs md:text-base">
+                      Dossier Parent
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </TableCell>
+            {[...Array(headers.length - 1)].map((_, cellId) => (
+              <TableCell key={cellId} className="p-1 md:p-4">-</TableCell>
+            ))}
+          </TableRow>
           {loading &&
             [...Array(10)].map((_, index) => (
               <TableRow key={index} className="h-[50px]">
@@ -191,7 +213,7 @@ export function TableCard({
               <TableRow key={rowId} className="group">
                 {headers.map((_: any, cellId: number) => (
                   <TableCell
-                    className="relative truncate overflow-hidden px-0.5 md:px-2 max-w-[600px]"
+                    className="relative truncate overflow-hidden px-1 md:px-2 max-w-[200px] lg:max-w-[600px]"
                     key={cellId}
                   >
                     {headers[cellId].display && headers[cellId].display(row)}
