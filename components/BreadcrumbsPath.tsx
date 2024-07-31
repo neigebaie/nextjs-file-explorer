@@ -37,7 +37,8 @@ export default function BreadcrumbsPath({ customLabels }: Props) {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbLink href={breadcrumb.href}>
-                {(customLabels && customLabels[breadcrumb.segment]) || breadcrumb.segment}
+                {(customLabels && customLabels[breadcrumb.segment]) ||
+                  decodeURIComponent(breadcrumb.segment)}
               </BreadcrumbLink>
             </BreadcrumbItem>
           </React.Fragment>
