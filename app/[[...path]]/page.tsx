@@ -58,7 +58,7 @@ export default function FilePage({}: Props) {
             </p>
             <div className="truncate">
               <p className="text-xs md:text-base group-hover:animate-slide">
-                {decodeURIComponent(file.name)}
+                {file.name}
               </p>
             </div>
           </div>
