@@ -77,6 +77,7 @@ Briefly describe the structure of your project.
 
 - Add file icons depending on file type
 - Different color for already downloaded files
+- Add total size + number of files + number of dirs
 
 ## Contributing
 
