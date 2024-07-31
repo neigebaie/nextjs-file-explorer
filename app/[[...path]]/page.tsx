@@ -45,7 +45,7 @@ export default function FilePage({}: Props) {
         <Link
           href={
             file.type === "directory"
-              ? file.path
+              ? `/${file.path}`
               : joinHttpPaths(
                   `${process.env.NEXT_PUBLIC_API_URL}/files/download/`,
                   file.path
